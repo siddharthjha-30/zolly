@@ -31,3 +31,8 @@ dist-ssr
 *.sln
 *.sw?
 .vercel
+package-lock.json
+bun.lock
+package.json
+vercel.json
+vite.config.js
