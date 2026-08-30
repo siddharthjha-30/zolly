@@ -36,27 +36,3 @@ project/
 │   └── pages/             home, product, cart
 └── assets/images/         hero + product photography
 ```
-
-## Hooking up Firebase
-
-Edit `js/api.js`:
-
-```js
-import { initializeApp } from "https://www.gstatic.com/firebasejs/.../firebase-app.js";
-import { getFirestore, collection, getDocs, doc, getDoc }
-  from "https://www.gstatic.com/firebasejs/.../firebase-firestore.js";
-
-const db = getFirestore(initializeApp({ /* config */ }));
-
-export async function listProducts() {
-  const snap = await getDocs(collection(db, "products"));
-  return snap.docs.map(d => ({ id: d.id, ...d.data() }));
-}
-
-export async function getProduct(id) {
-  const snap = await getDoc(doc(db, "products", id));
-  return snap.exists() ? { id: snap.id, ...snap.data() } : null;
-}
-```
-
-Nothing else in the app needs to change.
