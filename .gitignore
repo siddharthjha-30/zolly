@@ -36,3 +36,4 @@ bun.lock
 package.json
 vercel.json
 vite.config.js
+.gitignore
